@@ -11,4 +11,10 @@ class HttpClientTest {
         assertEquals(42, 6*7);
     }
     
+    @Test
+    void shouldReturnStatusCode() {
+        HttpClient client = new HttpClient("httpbin.org", 80, "/html");
+        assertEquals(200, client.getStatusCode());
+    }
+
 }
