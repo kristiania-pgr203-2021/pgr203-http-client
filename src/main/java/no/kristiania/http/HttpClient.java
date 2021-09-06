@@ -24,6 +24,16 @@ public class HttpClient {
         
         String statusLine = readLine(socket);
         this.statusCode = Integer.parseInt(statusLine.split(" ")[1]);
+        
+        
+        String headerLine;
+        while (!(headerLine = readLine(socket)).isBlank()) {
+            int colonPos = headerLine.indexOf(':');
+            String key = headerLine.substring(0, colonPos);
+            String value = headerLine.substring(colonPos+1).trim();
+            headerFields.put(key, value);
+        }
+        
     }
 
     private String readLine(Socket socket) throws IOException {
