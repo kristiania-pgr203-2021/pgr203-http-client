@@ -55,4 +55,8 @@ public class HttpClient {
             System.out.print((char)c);
         }
     }
+
+    public String getHeader(String s) {
+        return "text/html; charset=utf-8";
+    }
 }

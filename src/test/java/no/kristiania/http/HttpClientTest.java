@@ -20,6 +20,12 @@ class HttpClientTest {
     }
 
     @Test
+    void shouldReturnHeaderFields() throws IOException {
+        HttpClient client = new HttpClient("httpbin.org", 80, "/html");
+        assertEquals("text/html; charset=utf-8", client.getHeader("Content-Type"));
+    }
+
+    @Test
     void shouldReturn404StatusCode() throws IOException {
         HttpClient client = new HttpClient("httpbin.org", 80, "/this-page-does-not-exist");
         assertEquals(404, client.getStatusCode());
