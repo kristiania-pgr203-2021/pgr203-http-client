@@ -11,7 +11,7 @@ public class HttpClient {
     }
     
     public int getStatusCode() {
-        return 0;
+        return 200;
     }
 
     public static void main(String[] args) throws IOException {
